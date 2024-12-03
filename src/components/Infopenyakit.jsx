@@ -44,58 +44,85 @@ const diseases = [
   },
 ];
 
+function DiseasePopup({ disease, onClose }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300">
+      <div className="bg-white rounded-lg p-6 max-w-md mx-auto transition-transform transform scale-100">
+        <h2 className="text-xl font-semibold">{disease.title}</h2>
+        <img src={disease.imageUrl} alt={disease.title} className="h-40 w-full object-cover my-4" />
+        <p>{disease.description}</p>
+        <button onClick={onClose} className="mt-4 bg-red-500 text-white py-2 px-4 rounded">Close</button>
+      </div>
+    </div>
+  );
+}
+
 function Infopenyakit() {
   const [search, setSearch] = useState('');
+  const [selectedDisease, setSelectedDisease] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // Filter penyakit berdasarkan input pencarian
+  const handleSearchChange = (e) => {
+    setLoading(true);
+    setSearch(e.target.value);
+    setTimeout(() => {
+      setLoading(false); // Simulate loading time
+    }, 300); // Adjust as needed
+  };
+
   const filteredDiseases = diseases.filter((disease) =>
     disease.title.toLowerCase().includes(search.toLowerCase())
   );
-    return (
-        <>
-        <div className="bg-orange-50 rounded-lg p-8 max-w-3xl mx-auto text-center shadow-lg relative">
-        <div className="absolute top-2 left-2 text-red-500 text-xl">•</div>
-        <div className="absolute top-4 left-10 text-blue-400 text-xs">•</div>
-        <div className="absolute bottom-3 right-4 text-purple-400 text-xl">&#x21BA;</div>
-        <div className="absolute bottom-6 left-6 text-yellow-400 text-xl">&#x21BB;</div>
 
-        <h2 className="text-2xl font-semibold text-gray-900 mb-2">Infromasi Data Penyakit Hewan Ternak</h2>
-        <p className="text-gray-600">Kami memberikan informasi terbaru tentang penyaki-penyakit yang sering terjangkit pada hewan ternak sapi. Yang akan membuat ana para peternak menjadi lebih mengetahui tentang banyaknya penyakit yang dapat terjangkit pada hewan ternak anda </p>
+  return (
+    <>
+      <div className="bg-orange-50 rounded-lg p-8 max-w-3xl mx-auto text-center shadow-lg relative">
+        <h2 className="text-2xl font-semibold text-gray-900 mb-2">Informasi Data Penyakit Hewan Ternak</h2>
+        <p className="text-gray-600">Kami memberikan informasi terbaru tentang penyakit yang sering terjangkit pada hewan ternak sapi.</p>
       </div>
 
       <div className="max-w-screen-lg mx-auto p-4">
-      {/* Search Bar */}
-      <div className="flex items-center mb-6">
-        <input
-          type="text"
-          placeholder="Pencarian Penyakit"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400"
-        />
-        <button className="bg-yellow-400 p-3 rounded-r-lg">
-          <img src={searchIcon} alt="Search" className="w-6 h-6" />
-        </button>
-      </div>
-      </div>
+        {/* Search Bar */}
+        <div className="flex items-center mb-6">
+          <input
+            type="text"
+            placeholder="Pencarian Penyakit"
+            value={search}
+            onChange={handleSearchChange}
+            className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400"
+          />
+          <button className="bg-yellow-400 p-3 rounded-r-lg">
+            <img src={searchIcon} alt="Search" className="w-6 h-6" />
+          </button>
+        </div>
 
-        <div className="max-w-screen-lg mx-auto p-4">
+        {loading && <p className="text-center text-gray-500">Loading...</p>}
+
         <h1 className="text-2xl font-bold mb-4">Data Penyakit</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredDiseases.map((disease, index) => (
-            <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src={disease.imageUrl} alt={disease.title} className="h-40 w-full object-cover" />
-            
-            <div className="p-4">
+          {filteredDiseases.map((disease, index) => (
+            <div key={index}
+                 className={`bg-white shadow-md rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg ${selectedDisease === disease ? 'border border-yellow-500' : ''}`}
+                 onClick={() => setSelectedDisease(disease)}>
+              <img src={disease.imageUrl} alt={disease.title} className="h-40 w-full object-cover" />
+              <div className="p-4">
                 <h2 className="font-semibold text-lg">{disease.title}</h2>
                 <p className="text-sm text-gray-700 mt-2">{disease.description}</p>
+              </div>
             </div>
-            </div>
-        ))}
+          ))}
         </div>
-        </div>
-        </>
-    );
-  }
+
+        {selectedDisease && (
+          <DiseasePopup 
+            disease={selectedDisease} 
+            onClose={() => setSelectedDisease(null)} 
+          />
+        )}
+      </div>
+    </>
+  );
+}
+
 export default Infopenyakit;
