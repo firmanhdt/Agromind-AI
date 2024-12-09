@@ -39,9 +39,6 @@ const Login = () => {
 
   return (
       <div className="flex items-center justify-center min-h-screen bg-green-100">
-        <div className="absolute inset-0 flex items-center justify-center bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url(/path-to-your-background-image.jpg)' }}>
-          {/* Gambar sapi dan background dapat diganti sesuai kebutuhan */}
-        </div>
         <div className="relative z-10 w-full max-w-md bg-white shadow-lg rounded-lg p-8">
           <div className="text-center">
             <img src={logo} alt="Logo Agromind AI" className="mx-auto w-100 h-24 mb-4" />
@@ -49,6 +46,10 @@ const Login = () => {
             <p className="text-sm font-medium text-gray-600">Mari Beternak Bersama Agromind</p>
           </div>
           <div className="mt-6">
+          <div className="flex justify-center text-gray-600 mb-4">
+              <a href="/register" className="mr-4 font-semibold text-gray-500 border-b-2 hover:border-orange-600">Daftar</a>
+              <button className="border-b-2 border-orange-600 font-semibold text-orange-600">Masuk</button>
+            </div>
             <form onSubmit={handleLogin} className="space-y-4">
               <input
                 type="email"
@@ -66,27 +67,25 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <div className="flex justify-between mt-6">
+              <button type="submit" className="w-full px-4 py-2 bg-gray-200 hover:bg-gray-300 text-balck rounded-lg">
+                Kembali
+              </button>
               <button type="submit" className="w-full px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg">
                 Masuk
               </button>
+              </div>
             </form>
-            <div className="flex justify-center text-gray-600 mb-4">
-              <a href="/register" className="mr-4 font-semibold text-gray-500 border-b-2 hover:border-orange-600">Daftar</a>
-              <button className="border-b-2 border-orange-600 font-semibold text-orange-600">Masuk</button>
-            </div>
-            <p className="text-center text-gray-500 text-sm mt-4">Atau</p>
-            <div className="flex justify-center mt-4 space-x-4">
+
+            {/* <p className="text-center text-gray-500 text-sm mt-4">Atau</p> */}
+            {/* <div className="flex justify-center mt-4 space-x-4">
               <button className="p-2 bg-gray-100 rounded-full shadow-md">
                 <img src={google} alt="Google" className="w-6 h-6" />
               </button>
               <button className="p-2 bg-gray-100 rounded-full shadow-md">
                 <img src={facebook} alt="Facebook" className="w-6 h-6" />
               </button>
-            </div>
-            <div className="flex justify-between mt-6">
-              <a href="/" className="w-1/2 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-center">Kembali</a>
-              <a href="/" className="w-1/2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg ml-2 text-center">Masuk</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,14 +1,13 @@
 import React from "react";
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 
 function DiagnosePage() {
   const [imageSrc, setImageSrc] = useState("");
   const imagePreviewRef = useRef(null);
   const [selectedSymptoms, setSelectedSymptoms] = useState(Array(175).fill(false)); // State untuk menyimpan status checkbox
-  const navigate = useNavigate();
 
   const symptoms = [
+    // '',
     'abses',
     'ambing bengkak',
     'ambruk',
@@ -197,79 +196,20 @@ function DiagnosePage() {
   };
 
   // Fungsi untuk mengirim data ke backend
-  const handleDiagnose = async () => {
-    if (selectedSymptoms.length === 0 && !imageSrc) {
-      alert("Pilih minimal satu gejala atau upload foto untuk mendiagnosa.");
+  const handleDiagnose = () => {
+    if (selectedSymptoms.length === 0) {
+      alert("Pilih minimal satu gejala untuk mendiagnosa.");
       return;
     }
 
-    try {
-      let result;
+    const diagnosisData = {
+      symptoms: selectedSymptoms,
+      image: imageSrc,
+    };
 
-      // If there's an image, send it for prediction
-      if (imageSrc) {
-        // Convert base64 image to blob
-        const response = await fetch(imageSrc);
-        const blob = await response.blob();
-        
-        const formData = new FormData();
-        formData.append('image', blob);
-
-        const imageResponse = await fetch('https://app-predict-image.1ongwfft5soj.us-south.codeengine.appdomain.cloud/imagePrediction', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json',
-          }
-        });
-
-        if (!imageResponse.ok) {
-          throw new Error('Image prediction failed');
-        }
-
-        const imageResult = await imageResponse.json();
-        result = imageResult.Penyakit;
-      }
-
-      // If there are symptoms selected, send them for prediction
-      if (selectedSymptoms.length > 0) {
-        // Create array of 175 elements with 0s and 1s
-        const symptomValues = Array(175).fill(0);
-        selectedSymptoms.forEach(symptom => {
-          const index = symptoms.indexOf(symptom);
-          if (index !== -1) {
-            symptomValues[index] = 1;
-          }
-        });
-        const symptomsResponse = await fetch('https://app-predict-image.1ongwfft5soj.us-south.codeengine.appdomain.cloud/diseasePrediction', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ 'inputGejala': symptomValues }),
-        });
-
-        if (!symptomsResponse.ok) {
-          throw new Error('Symptoms prediction failed');
-        }
-
-        const symptomsResult = await symptomsResponse.json();
-        result = symptomsResult.Penyakit;
-      }
-
-      // Navigate to results page with the prediction
-      navigate('/hasil', { 
-        state: { 
-          diagnosis: result, 
-          symptoms: selectedSymptoms,
-          image: imageSrc 
-        } 
-      });
-
-    } catch (error) {
-      console.error('Error during prediction:', error);
-      alert('Terjadi kesalahan saat melakukan prediksi. Silakan coba lagi.');
-    }
+    // Contoh pengiriman data ke API
+    console.log("Data terkirim:", diagnosisData);
+    alert("Data diagnosis terkirim! (Silakan implementasikan API backend.)");
   };
 
   // Fungsi untuk menangani upload gambar
@@ -351,32 +291,32 @@ function DiagnosePage() {
       </div>
 
     <div class="flex justify-center items-center bg-gray-100">
-    <div className="bg-yellow-100 p-6 rounded-lg w-full">
-    <h2 className="text-center font-semibold text-lg mb-4">Diagnosa</h2>
-    <div className="overflow-x-auto"> {/* Enable horizontal scrolling */}
-        <div className="grid grid-cols-5 gap-4 mb-4 text-sm"> {/* Adjust the number of columns */}
-            {symptoms.map((symptom, index) => (
-                <label key={index} className="flex items-center font-semibold">
-                    <input
-                        type="checkbox"
-                        value={symptom}
-                        className="mr-2"
-                        onChange={handleCheckboxChange}
-                    />
-                    {symptom}
-                </label>
-            ))}
+    <div class="bg-yellow-100 p-6 rounded-lg w-full">
+        <h2 class="text-center font-semibold text-lg mb-4">Diagnosa</h2>
+        <div class="overflow-x-auto">
+            <div class="grid grid-cols-5 gap-4 mb-4 text-sm">
+                {symptoms.map((symptom, index) => (
+                    <label key={index} className="flex items-center whitespace-nowrap">
+                        <input
+                            type="checkbox"
+                            value={symptom}
+                            className="mr-2"
+                            onChange={handleCheckboxChange}
+                        />
+                        {symptom}
+                    </label>
+                ))}
+            </div>
+        </div>
+        <div className="flex justify-center mt-6">
+            <button
+                onClick={handleDiagnose}
+                className="bg-[#362B0E] text-white py-2 px-4 rounded hover:bg-[#1f1808]"
+            >
+                Kirim Diagnosa
+            </button>
         </div>
     </div>
-    <div className="flex justify-center mt-6">
-        <button
-            onClick={handleDiagnose}
-            className="bg-[#362B0E] text-white py-2 px-4 rounded hover:bg-[#1f1808]"
-        >
-            Kirim Diagnosa
-        </button>
-    </div>
-</div>
 </div>
     </>
   );

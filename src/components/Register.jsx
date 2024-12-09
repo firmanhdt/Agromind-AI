@@ -46,6 +46,11 @@ const Register = () => {
           <h2 className="text-2xl font-semibold text-orange-600">AGROMIND AI</h2>
           <p className="text-sm font-medium text-gray-600">Mari Beternak Bersama Agromind</p>
         </div>
+        <div className="mt-6">
+        <div className="flex justify-center text-gray-600 mb-4">
+        <a href="#" className="mr-4 border-b-2 border-orange-600 font-semibold text-orange-500 hover:border-orange-600">Daftar</a>
+        <a href="/login" className="border-b-2 hover:border-orange-600 font-semibold text-gray-600">Masuk</a>
+        </div> 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <input
             type="text"
@@ -79,10 +84,16 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <div className="flex justify-between mt-6">
+          <button type="submit" className="w-full px-4 py-2 bg-gray-200 hover:bg-gray-300 text-black rounded-lg">
+            Kembali
+          </button>
           <button type="submit" className="w-full px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg">
             Daftar Akun
           </button>
+          </div>
         </form>
+        </div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const DashboardContent = () => {
         tension: 0.1,
       },
     ],
-  };
+  };Z
 
   const options = {
     responsive: true,
