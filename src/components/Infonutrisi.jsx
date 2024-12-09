@@ -1,181 +1,153 @@
-import React from "react";
+import React, { useState } from "react";
+import searchIcon from '../assets/penyakit/searchIcon.png';
 
 function Infonutrisi() {
+  const [expandedSection, setExpandedSection] = useState(null);
+  const [search, setSearch] = useState('');
+
+  const handleSectionClick = (sectionId) => {
+    setExpandedSection(expandedSection === sectionId ? null : sectionId); // Toggle the section
+  };
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  // Nutritional data
+  const nutritionalData = [
+    {
+      id: "nutrisiUtama",
+      title: "Unsur - Unsur Nutrisi Utama Pada Sapi",
+      description: "Nutrisi yang tepat sangat krusial bagi pertumbuhan, kesehatan, dan produktivitas sapi.",
+      details: [
+        { title: "Karbohidrat", items: ["Sumber energi utama.", "Ditemukan pada rumput, jerami, konsentrat (beras, jagung, dedak).", "Berfungsi untuk pertumbuhan, produksi susu, dan aktivitas tubuh."] },
+        { title: "Protein", items: ["Dibutuhkan untuk pertumbuhan jaringan tubuh, produksi susu, dan pembentukan antibodi.", "Sumber protein: legum (kacang-kacangan), bungkil kedelai, tepung ikan."] },
+        { title: "Lemak", items: ["Sumber energi yang sangat padat.", "Membantu penyerapan vitamin larut lemak (A, D, E, K).", "Ditemukan pada biji-bijian dan minyak nabati."] },
+        { title: "Mineral", items: ["Makro mineral (kalsium, fosfor, natrium, kalium) dibutuhkan dalam jumlah besar.", "Mikro mineral (besi, tembaga, seng, yodium) dibutuhkan dalam jumlah kecil.", "Berfungsi untuk pembentukan tulang, produksi hormon, dan metabolisme."] },
+        { title: "Vitamin", items: ["Vitamin larut lemak (A, D, E, K) dan vitamin larut air (B kompleks, C).", "Berfungsi untuk menjaga kesehatan mata, kulit, sistem saraf, dan imunitas."] },
+        { title: "Air", items: ["Sangat penting untuk semua proses metabolisme tubuh.", "Membantu pencernaan, mengatur suhu tubuh, dan transportasi zat-zat dalam tubuh."] }
+      ]
+    },
+    {
+      id: "jenisPakan",
+      title: "Jenis Pakan Sapi",
+      details: [
+        "Pakan Hijau: Pakan yang berasal dari tanaman hijau seperti rumput dan legum. Kaya akan serat dan vitamin.",
+        "Pakan Konsentrat: Pakan yang memiliki kandungan nutrisi tinggi seperti biji-bijian (jagung, sorgum) dan produk sampingan industri.",
+        "Pakan Tambahan: Mineral dan vitamin sebagai suplemen."
+      ]
+    },
+    {
+      id: "keseimbangan",
+      title: "Pentingnya Keseimbangan Nutrisi",
+      details: [
+        "Keseimbangan nutrisi pada sapi ternak merupakan faktor kunci dalam mencapai produktivitas yang optimal.",
+        "Pertumbuhan Optimal: Nutrisi yang seimbang mendukung pertumbuhan yang sehat.",
+        "Produksi Tinggi: Meningkatkan produksi susu atau daging.",
+        "Reproduksi Sehat: Meningkatkan kesuburan sapi betina.",
+        "Kekebalan Tubuh Kuat: Meningkatkan sistem kekebalan tubuh.",
+        "Kualitas Produk: Menghasilkan produk berkualitas tinggi.",
+        "Efisiensi Pakan: Memaksimalkan pemanfaatan pakan."
+      ]
+    }
+  ];
+
+  // Filter nutritional data based on search input
+  const filteredNutritionalData = nutritionalData.filter(data =>
+    data.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
-    {/* Unsur - unsur*/}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Unsur - Unsur Nutrisi Utama Pada Sapi</h2>
-        <ul className="list-decimal list-inside space-y-2">
-            <p>Nutrisi yang tepat sangat krusial bagi pertumbuhan, kesehatan, dan produktivitas sapi. Kebutuhan nutrisi sapi akan bervariasi tergantung pada umur, jenis kelamin, tingkat produksi (susu, daging), dan kondisi fisiologis (kebuntingan, laktasi).</p>
-            <p>Komponen utama pada nutrisi sapi</p>
-            <div>
-                <li>
-                <span className="font-semibold">karbohidrat:</span>
-                <ul class="list-disc list-inside space-y-2 ml-4">
-                <li>Sumber energi utama.</li>
-                <li>Ditemukan pada rumput, jerami, konsentrat (beras, jagung, dedak).</li>
-                <li>Berfungsi untuk pertumbuhan, produksi susu, dan aktivitas tubuh.</li>
-            </ul>
-                </li>
-            </div>
-            <div>
-                 <li>
-                <span className="font-semibold">Protein:</span>
-                <ul class="list-disc list-inside space-y-2 ml-4">
-                <li>Dibutuhkan untuk pertumbuhan jaringan tubuh, produksi susu, dan pembentukan antibodi.</li>
-                <li>Sumber protein: legum (kacang-kacangan), bungkil kedelai, tepung ikan.</li>
-            </ul>
-                </li>
-            </div>
-            <div>
-            <li>
-                <span className="font-semibold">Lemak:</span>
-                <ul class="list-disc list-inside space-y-2 ml-4">
-                <li>Sumber energi yang sangat padat.</li>
-                <li>Membantu penyerapan vitamin larut lemak (A, D, E, K).</li>
-                <li>Ditemukan pada biji-bijian, minyak nabati.</li>
-            </ul>
-                </li>
-            </div>
-            <div>
-                <li>
-                <span className="font-semibold">Mineral:</span>
-                <ul class="list-disc list-inside space-y-2 ml-4">
-                <li>Makro mineral (kalsium, fosfor, natrium, kalium) dibutuhkan dalam jumlah besar.</li>
-                <li>Mikro mineral (besi, tembaga, seng, yodium) dibutuhkan dalam jumlah kecil.</li>
-                <li>Berfungsi untuk pembentukan tulang, produksi hormon, dan metabolisme.</li>
-            </ul>
-                </li>
-            </div>
-            <div>
-                <li>
-                    <span className="font-semibold">Vitamin:</span>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                    <li>Vitamin larut lemak (A, D, E, K) dan vitamin larut air (B kompleks, C).</li>
-                    <li>Berfungsi untuk menjaga kesehatan mata, kulit, sistem saraf, dan imunitas.</li>
-                    </ul>
-                </li>
-            </div>
-            <div>
-                <li>
-                    <span className="font-semibold">Air:</span>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                    <li>Sangat penting untuk semua proses metabolisme tubuh.</li>
-                    <li>Membantu pencernaan, mengatur suhu tubuh, dan transportasi zat-zat dalam tubuh.</li>
-                    </ul>
-                </li>
-            </div>
-        </ul>
-    </div>
+      <div className="bg-orange-50 rounded-lg p-8 max-w-3xl mx-auto text-center shadow-lg relative">
+        <h2 className="text-2xl font-semibold text-gray-900 mb-2">Informasi Nutrisi Sapi</h2>
+        <p className="text-gray-600">Kami memberikan informasi terbaru tentang nutrisi yang penting bagi kesehatan sapi.</p>
+      </div>
 
-        {/* Jenis pakan Sapi*/}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Jenis Pakan Sapi</h2>
-        <ul className="list-decimal list-inside space-y-2">
-            <li>Pakan Hijau: Pakan yang berasal dari tanaman hijau, seperti rumput, legum, dan hijauan pakan lainnya. Pakan hijau kaya akan serat, vitamin, dan mineral.</li>
-            <li>Pakan Konsentrat: Pakan yang memiliki kandungan nutrisi yang tinggi, seperti biji-bijian (jagung, sorgum), bungkil biji (kedelai, kelapa), dan produk sampingan industri (molases). Pakan konsentrat biasanya diberikan sebagai tambahan pada pakan hijau untuk memenuhi kebutuhan nutrisi sapi.</li>
-            <li>Pakan Tambahan: Mineral, vitamin, dan aditif lainnya.</li>
-        </ul>
+      <div className="max-w-screen-lg mx-auto p-4">
+        {/* Search Bar */}
+        <div className="flex items-center mb-6">
+          <input
+            type="text"
+            placeholder="Pencarian Nutrisi"
+            value={search}
+            onChange={handleSearchChange}
+            className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400"
+          />
+          <button className="bg-yellow-400 p-3 rounded-r-lg">
+            <img src={searchIcon} alt="Search" className="w-6 h-6" />
+          </button>
         </div>
 
-        {/* pentingnya keseimbangan nutrisi*/}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Pentingnya Keseimbangan Nutrisi</h2>
-        <ul className="list-decimal list-inside space-y-2">
-            <p>Keseimbangan nutrisi pada sapi ternak merupakan faktor kunci dalam mencapai produktivitas yang optimal dan kesehatan ternak yang baik</p>
-            <li>Pertumbuhan Optimal: Nutrisi yang seimbang mendukung pertumbuhan yang sehat dan cepat, terutama pada sapi muda.</li>
-            <li>Produksi yang Tinggi: Baik untuk sapi perah maupun sapi potong, nutrisi yang tepat akan meningkatkan produksi susu atau daging.</li>
-            <li>Reproduksi yang Sehat: Nutrisi yang cukup akan meningkatkan kesuburan sapi betina dan kesehatan anak sapi.</li>
-            <li>Kekebalan Tubuh yang Kuat: Nutrisi yang seimbang membantu meningkatkan sistem kekebalan tubuh, sehingga sapi lebih tahan terhadap penyakit.</li>
-            <li>Kualitas Produk: Nutrisi yang baik akan menghasilkan produk berkualitas tinggi, baik susu maupun daging.</li>
-            <li>Efisiensi Pakan: Nutrisi yang seimbang akan memaksimalkan pemanfaatan pakan, sehingga mengurangi biaya produksi.</li>
-        </ul>
+        <h1 className="text-2xl font-bold mb-4">Data Nutrisi</h1>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredNutritionalData.map((data) => (
+            <div key={data.id}
+              className={`bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 cursor-pointer ${expandedSection === data.id ? 'border border-yellow-500' : ''}`}
+              onClick={() => handleSectionClick(data.id)}>
+              <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">{data.title}</h2>
+              {expandedSection === data.id && (
+                <div>
+                  <p>{data.description}</p>
+                  <ul className="list-decimal list-inside space-y-2 mt-4">
+                    {data.details.map((detailItem) => (
+                      typeof detailItem === 'string' ? (
+                        <li key={detailItem}>{detailItem}</li>
+                      ) : (
+                        <li key={detailItem.title}>
+                          <span className="font-semibold">{detailItem.title}:</span>
+                          <ul className="list-disc list-inside space-y-1 ml-4">
+                            {detailItem.items.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </li>
+                      )
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
-    {/*Contoh Pakan Hijau*/}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Hijau</h2>
-        <div className="flex justify-center space-x-4 p-4">
-        
-      {/* Image 1 */}
-      <img 
-        src="/src/assets/nutrisi/gbr pakan hijau.png" 
-        alt="Description of Image 1" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-      
-      {/* Image 2 */}
-      <img 
-        src="/src/assets/nutrisi/image 5.png" 
-        alt="Description of Image 2" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-      
-      {/* Image 3 */}
-      <img 
-        src="/src/assets/nutrisi/image 6.png"  
-        alt="Description of Image 3" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-        </div>
-    </div>
+        {/* Example Images for Green Feed */}
+        {expandedSection === null && (
+          <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
+            <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Hijau</h2>
+            <div className="flex justify-center space-x-4 p-4">
+              <img src="/src/assets/nutrisi/gbr pakan hijau.png" alt="Contoh Pakan Hijau 1" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/src/assets/nutrisi/image 5.png" alt="Contoh Pakan Hijau 2" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/src/assets/nutrisi/image 6.png" alt="Contoh Pakan Hijau 3" className="w-1/3 h-auto rounded-lg shadow-md" />
+            </div>
+          </div>
+        )}
 
-    {/*Contoh Pakan Konsentrat*/}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Konsentrat</h2>
-        <div className="flex justify-center space-x-4 p-4">
-        
-      {/* Image 1 */}
-      <img 
-        src="/src/assets/nutrisi/gbr pakan konsentrat.png" 
-        alt="Description of Image 1" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-      
-      {/* Image 2 */}
-      <img 
-        src="/src/assets/nutrisi/image 3.png" 
-        alt="Description of Image 2" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-      
-      {/* Image 3 */}
-      <img 
-        src="/src/assets/nutrisi/image 4.png"  
-        alt="Description of Image 3" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-        </div>
-    </div>
+        {/* Example Images for Concentrate Feed */}
+        {expandedSection === null && (
+          <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
+            <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Konsentrat</h2>
+            <div className="flex justify-center space-x-4 p-4">
+              <img src="/src/assets/nutrisi/gbr pakan konsentrat.png" alt="Contoh Pakan Konsentrat 1" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/src/assets/nutrisi/image 3.png" alt="Contoh Pakan Konsentrat 2" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/src/assets/nutrisi/image 4.png" alt="Contoh Pakan Konsentrat 3" className="w-1/3 h-auto rounded-lg shadow-md" />
+            </div>
+          </div>
+        )}
 
-     {/*Contoh Pakan Tambahan*/}
-     <div className="bg-white p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Tambahan</h2>
-        <div className="flex justify-center space-x-4 p-4">
-        
-      {/* Image 1 */}
-      <img 
-        src="/src/assets/nutrisi/gbr pakan Tambahan.png" 
-        alt="Description of Image 1" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-      
-      {/* Image 2 */}
-      <img 
-        src="/src/assets/nutrisi/image 1.png" 
-        alt="Description of Image 2" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-      
-      {/* Image 3 */}
-      <img 
-        src="/src/assets/nutrisi/image 2.png"  
-        alt="Description of Image 3" 
-        className="w-1/3 h-auto rounded-lg shadow-md" 
-      />
-        </div>
-    </div>
+        {/* Example Images for Supplement Feed */}
+        {expandedSection === null && (
+          <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
+            <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Tambahan</h2>
+            <div className="flex justify-center space-x-4 p-4">
+              <img src="/src/assets/nutrisi/gbr pakan Tambahan.png" alt="Contoh Pakan Tambahan 1" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/src/assets/nutrisi/image 1.png" alt="Contoh Pakan Tambahan 2" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/src/assets/nutrisi/image 2.png" alt="Contoh Pakan Tambahan 3" className="w-1/3 h-auto rounded-lg shadow-md" />
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }
