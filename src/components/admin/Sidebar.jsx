@@ -12,16 +12,16 @@ function Sidebar() {
       <div className="fixed top-0 left-0 w-full bg-white z-5">
         <div className="flex items-center justify-between h-14 px-4">
         <div className="flex items-center md:ml-64 ml-0">
-            <span className="font-bold text-lg">Halo, Refiani!</span>
+            <span className="font-bold text-lg">Halo, Admin!</span>
             <span className="text-gray-500 text-sm ml-2">Selamat Datang Di AgromindAI</span>
           </div>
           <div className="flex items-center">
-            <img
+            {/* <img
               src="https://th.bing.com/th/id/OIP.9PPdes_WSxaqUQJxWab16AHaHa?rs=1&pid=ImgDetMain" // Ganti dengan path gambar profil yang sesuai
               alt="Profile"
               className="w-8 h-8 rounded-full"
-            />
-            <span className="px-5">Refiani Julianti</span>
+            /> */}
+            <span className="px-5">Admin</span>
           {/* Hamburger Button */}
           <button
             className="md:hidden p-2 focus:outline-none"
@@ -126,7 +126,7 @@ function Sidebar() {
                   Pengunjung
                 </span>
               </Link>
-              <Link
+              {/* <Link
                 to="/admin/profile"
                 className={`relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 ${
                   isActive('/profile') 
@@ -145,7 +145,7 @@ function Sidebar() {
                 <span className="ml-2 text-sm tracking-wide truncate">
                   Pengaturan
                 </span>
-              </Link>
+              </Link> */}
             </li>
           </ul>
           <li>

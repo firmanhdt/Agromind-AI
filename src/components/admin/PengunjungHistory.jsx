@@ -1,17 +1,58 @@
 import React, { useEffect, useState } from "react";
 
 const PengunjungHistory = () => {
-  const [pengunjungs, setPengunjungs] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState(null);
 
-  const fetchPengunjungs = async () => {
-    const response = await fetch("http://localhost:3000/api/pengunjungs"); // Endpoint untuk mendapatkan daftar pengunjung
-    const data = await response.json();
-    setPengunjungs(data);
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/pengunjungs");
+      const data = await response.json();
+      console.log("Data yang diterima:", data);
+      setUsers(data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
   };
 
   useEffect(() => {
-    fetchPengunjungs();
+    fetchUsers();
   }, []);
+
+  // Fungsi untuk menampilkan dialog konfirmasi
+  const handleDeleteClick = (userId) => {
+    console.log("ID yang akan dihapus:", userId);
+    setSelectedUserId(userId);
+    setShowConfirmDialog(true);
+  };
+
+  // Fungsi untuk menghapus user
+  const handleDelete = async () => {
+    try {
+      console.log("Mencoba menghapus user dengan ID:", selectedUserId);
+      
+      const response = await fetch(`http://localhost:3000/api/pengunjungs/${selectedUserId}`, {
+        method: 'DELETE',
+      });
+
+      const result = await response.json();
+      console.log("Response dari server:", result);
+
+      if (response.ok) {
+        await fetchUsers();
+        alert('Data berhasil dihapus');
+      } else {
+        alert(`Gagal menghapus data: ${result.message || 'Unknown error'}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Terjadi kesalahan saat menghapus data');
+    } finally {
+      setShowConfirmDialog(false);
+      setSelectedUserId(null);
+    }
+  };
 
   return (
     <div className="p-4 py-13 lg:ml-64 flex-1 min-h-screen bg-gray-50">
@@ -59,17 +100,34 @@ const PengunjungHistory = () => {
                 <th className="px-4 py-3 text-center text-sm font-semibold">NAMA PENGUNJUNG</th>
                 <th className="px-4 py-3 text-center text-sm font-semibold">EMAIL</th>
                 <th className="px-4 py-3 text-center text-sm font-semibold">NO_HP</th>
+                <th className="px-4 py-3 text-center text-sm font-semibold">AKSI</th>
               </tr>
             </thead>
             <tbody>
-              {pengunjungs.map((pengunjung) => (
-                <tr key={pengunjung.no} className="border-b">
-                  <td className="px-4 py-4 text-center text-sm">{pengunjung.no}</td>
-                  <td className="px-4 py-4 text-center text-sm">{pengunjung.nama}</td>
-                  <td className="px-4 py-4 text-center text-sm">{pengunjung.email}</td>
-                  <td className="px-4 py-4 text-center text-sm">{pengunjung.no_hp}</td>
+              {users && users.length > 0 ? (
+                users.map((user, index) => (
+                  <tr key={user._id} className="border-b">
+                    <td className="px-4 py-4 text-center text-sm">{index + 1}</td>
+                    <td className="px-4 py-4 text-center text-sm">{user.fullName}</td>
+                    <td className="px-4 py-4 text-center text-sm">{user.email}</td>
+                    <td className="px-4 py-4 text-center text-sm">{user.phoneNumber}</td>
+                    <td className="px-4 py-4 text-center text-sm">
+                      <button
+                        onClick={() => handleDeleteClick(user._id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg"
+                      >
+                        Hapus
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5" className="px-4 py-4 text-center text-sm">
+                    Tidak ada data pengunjung
+                  </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
@@ -85,6 +143,30 @@ const PengunjungHistory = () => {
           </div>
         </div>
       </div>
+
+      {/* Dialog Konfirmasi */}
+      {showConfirmDialog && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h3 className="text-lg font-semibold mb-4">Konfirmasi Hapus</h3>
+            <p>Apakah Anda yakin ingin menghapus data ini?</p>
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                onClick={() => setShowConfirmDialog(false)}
+                className="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300"
+              >
+                Batal
+              </button>
+              <button
+                onClick={handleDelete}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              >
+                Hapus
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

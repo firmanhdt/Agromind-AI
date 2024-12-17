@@ -198,38 +198,38 @@ for (let i = 1; i <= 175; i++) {
 
 // Handle form submission
 
-document.getElementById('submit-button').addEventListener('click', () => {
-    // Collect checkbox values
-    const values = [];
-    for (let i = 1; i <= 175; i++) {
-        const checkbox = document.getElementById(`checkbox-${i}`);
-        values.push(checkbox.checked ? 1 : 0); // Add 1 if checked, 0 if not
-    }
+// document.getElementById('submit-button').addEventListener('click', () => {
+//     // Collect checkbox values
+//     const values = [];
+//     for (let i = 1; i <= 175; i++) {
+//         const checkbox = document.getElementById(`checkbox-${i}`);
+//         values.push(checkbox.checked ? 1 : 0); // Add 1 if checked, 0 if not
+//     }
 
-    console.log('Checkbox Values:', values); // For debugging
+//     console.log('Checkbox Values:', values); // For debugging
 
-    // Send the values to the ML model endpoint
-    const endpointUrl = 'https://deployment-test-production-cad9.up.railway.app/diseasePrediction'; // Replace with your endpoint URL
-    fetch(endpointUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 'inputGejala': values }), // Wrap values in an object as JSON
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Model Response:', data); // Debugging response
+//     // Send the values to the ML model endpoint
+//     const endpointUrl = 'https://deployment-test-production-cad9.up.railway.app/diseasePrediction'; // Replace with your endpoint URL
+//     fetch(endpointUrl, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ 'inputGejala': values }), // Wrap values in an object as JSON
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('Model Response:', data); // Debugging response
 
-        // Display the prediction result
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `<strong>Prediction Result:</strong> ${data.Penyakit}`;
-    })
-    .catch(error => {
-        console.error('Error:', error); // Handle errors
+//         // Display the prediction result
+//         const resultDiv = document.getElementById('result');
+//         resultDiv.innerHTML = `<strong>Prediction Result:</strong> ${data.Penyakit}`;
+//     })
+//     .catch(error => {
+//         console.error('Error:', error); // Handle errors
 
-        // Display error message
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `<strong>Error:</strong> Unable to fetch prediction.`;
-    });
-});
+//         // Display error message
+//         const resultDiv = document.getElementById('result');
+//         resultDiv.innerHTML = `<strong>Error:</strong> Unable to fetch prediction.`;
+//     });
+// });

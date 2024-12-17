@@ -38,7 +38,7 @@ export const Footer = () => {
         <div>
           <h3 className="font-bold text-gray-800">Kontak Kami</h3>
           <ul className="mt-4 space-y-2 text-gray-700">
-            <li>@gmail.com</li>
+            <li>agromindai@gmail.com</li>
             <li>+62 8897 3293</li>
           </ul>
         </div>

@@ -27,8 +27,13 @@ const Login = () => {
 
       const data = await response.json();
       if (response.ok) {
-        console.log("Login berhasil:", data);
-        // Tambahkan logika untuk menyimpan token atau mengarahkan pengguna
+        const { token, fullName, email, role } = data; // Assuming role is returned
+        console.log(fullName, email, role)
+        localStorage.setItem('token', token);
+        localStorage.setItem('email', email);
+        localStorage.setItem('fullName', fullName);
+        localStorage.setItem('role', role);
+        window.location.href = '/'; // Redirect to home
       } else {
         console.error("Kesalahan login:", data);
       }

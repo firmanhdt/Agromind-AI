@@ -74,17 +74,19 @@ export const Landingpage = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8">
           {/* First Card - Link to Diagnose Page */}
-          <a href="/diagnose" className="text-center hover:bg-gray-100 p-4 rounded-lg">
-          <img src="src/assets/Landingpage/stopvirus.png" alt="Animal Disease Information" className="mx-auto h-48 mb-4" />
+          <a href="/diagnose" className="text-center hover:bg-gray-100 p-4 rounded-lg border border-gray-300">
+            <img src="src/assets/Landingpage/stopvirus.png" alt="Animal Disease Information" className="mx-auto h-48 mb-4" />
             <h3 className="text-xl font-semibold">Diagnosa Penyakit Ternak Anda Sekarang</h3>
           </a>
           
           {/* Second Card - Link to Info Page */}
-          <a href="/infopenyakit" className="text-center hover:bg-gray-100 p-4 rounded-lg">
+          <a href="/infopenyakit" className="text-center hover:bg-gray-100 p-4 rounded-lg border border-gray-300">
             <img src="src/assets/Landingpage/virus.png" alt="Animal Disease Information" className="mx-auto h-48 mb-4" />
             <h3 className="text-xl font-semibold">Informasi Data Penyakit Hewan Ternak</h3>
           </a>
         </div> 
+        {/* Pembatas antara Diagnosa dan Informasi */}
+        <div className="border-t border-gray-300 my-8"></div>
       </div>
     </div>
 
@@ -109,6 +111,7 @@ export const Landingpage = () => {
       </div>
 
       {/* Section Diskusi */}
+      {/* 
       <div className="bg-yellow-50 py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Diskusi</h2>
@@ -130,8 +133,10 @@ export const Landingpage = () => {
           </div>
         </div>
       </div>
+      */}
 
       {/* Section Pertanyaan */}
+      {/* 
       <div className="bg-blue-900 py-16">
         <div className="max-w-3xl mx-auto text-center text-white">
           <h2 className="text-2xl font-semibold mb-6">
@@ -149,6 +154,7 @@ export const Landingpage = () => {
           </div>
         </div>
       </div>
+      */}
     </>
   )
 }

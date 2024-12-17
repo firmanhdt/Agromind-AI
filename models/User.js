@@ -5,7 +5,10 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   phoneNumber: { type: String, required: true },
-  role: { type: String, enum: ['admin', 'user'], default: 'user' },
+  role: { type: String, enum: ['user'], default: 'user' },
+  createdAt: { type: Date, default: Date.now }
+}, {
+  timestamps: true
 });
 
 // Ekspor model sebagai default

@@ -1,209 +1,216 @@
-import React from "react";
-import { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import searchIcon from '../assets/penyakit/searchIcon.png';
 
 function DiagnosePage() {
   const [imageSrc, setImageSrc] = useState("");
   const imagePreviewRef = useRef(null);
-  const [selectedSymptoms, setSelectedSymptoms] = useState(Array(175).fill(false)); // State untuk menyimpan status checkbox
+  const [selectedSymptoms, setSelectedSymptoms] = useState(Array(175).fill(false));
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  
+  const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const diseasesPerPage = 175;
 
   const symptoms = [
-    'abses',
-    'ambing bengkak',
-    'ambruk',
-    'anemia',
-    'anestrus',
-    'anorexia',
-    'atau luka yang sulit sembuh',
-    'batuk',
-    'bau busuk yang tidak sedap dari luka atau area terinfeksi',
-    'bau tidak sedap dari perdarahan vagina (baunya bisa menjadi busuk)',
-    'berat badan turun secara signifikan',
-    'bersisik',
-    'borok perkulitan',
-    'bulu kusam',
-    'bulu rontok',
-    'buta',
-    'dan keriput',
-    'darah dalam tinja (terkadang)',
-    'daun telinga keropeng',
-    'dehidrasi',
-    'demam',
-    'diare',
-    'durasi gejala biasanya 3-4 hari',
-    'gangguan otot',
-    'gangguan pada organ tubuh',
-    'gangguan pencernaan',
-    'gangguan pencernaan seperti diare atau sembelit',
-    'gangguan penglihatan',
-    'gangguan pertumbuhan pada anak hewan',
-    'gangguan pertumbuhan pada anak-anak',
-    'gangguan reproduksi',
-    'gangguan sistem kekebalan tubuh',
-    'gangguan sistem saraf',
-    'gangguan tulang',
-    'gangguan umum dalam perilaku atau kesehatan',
-    'gatal',
-    'gatal atau terasa seperti ada benda asing di mata',
-    'gejala flu',
-    'gelisah',
-    'gemetar',
-    'gusi yang bengkak',
-    'haid tidak teratur',
-    'hati atau ginjal',
-    'hernia abdominalis',
-    'hernia umbilicalis',
-    'hilangnya bulu atau rambut pada area yang terinfeksi',
-    'janin yang terlilit tali pusar',
-    'kaku pada otot-otot tubuh',
-    'kawin berulang',
-    'kebingungan',
-    'kegagalan hewan untuk makan atau minum',
-    'kegagalan organ tertentu karena kekurangan nutrisi tertentu',
-    'keguguran',
-    'keguguran muda',
-    'keguguran pada betina',
-    'kehilangan nafsu makan',
-    'kejang',
-    'kekukurusan',
-    'kekurusan',
-    'kelainan kulit',
-    'kelainan mata',
-    'kelainan mulut',
-    'kelelahan yang kronis',
-    'kelesuan',
-    'kelopak mata melekat saat bangun tidur (terutama pada konjungtivitis bakteri)',
-    'keluarnya cairan atau darah dalam jumlah yang tidak normal dari vulva',
-    'keluarnya sekresi',
-    'keluarnya sekresi atau mata berair',
-    'kemerahan',
-    'kemungkinan terjadinya kejang',
-    'kenaikan suhu tubuh (demam)',
-    'kepala atau anggota badan janin terlihat tidak normal atau terdistorsi',
-    'kerontokan bulu',
-    'kerontokan rambut',
-    'kesadaran menurun',
-    'kesulitan berdiri',
-    'kesulitan bergerak',
-    'kesulitan bergerak atau berdiri',
-    'kesulitan bernapas',
-    'kesulitan dalam perkawinan',
-    'kesulitan dalam proses persalinan',
-    'kesulitan kencing',
-    'keterlambatan dalam pengosongan perut',
-    'keterlambatan dalam proses persalinan',
-    'kornea mata keruh',
-    'kram perut atau nyeri perut',
-    'kualitas bulu atau kulit yang buruk',
-    'kulit kering',
-    'kulit kering dan bersisik',
-    'kurangnya urin',
-    'lahir mati',
-    'lahir normal',
-    'lama waktu persalinan yang tidak normal',
-    'lelah',
-    'lemah',
-    'lemas',
-    'liur berdarah',
-    'liur berlebihan',
-    'luka berdarah',
-    'luka penis',
-    'masalah gigi dan gusi',
-    'masalah kulit seperti kering',
-    'masalah pada perkembangan otak pada anak-anak',
-    'masalah pernapasan',
-    'masalah reproduksi pada wanita',
-    'mata berair',
-    'mata berdarah',
-    'mata cekung',
-    'mata iritasi',
-    'mata merah',
-    'mata terasa kering atau terasa pasir di mata',
-    'mencret',
-    'mengedipkan mata lebih sering dari biasanya',
-    'menggaruk atau menggosok bagian tubuh tertentu',
-    'mual',
-    'mulut kering',
-    'mungkin terjadi bisingan pada rongga dada atau pernapasan yang cepat',
-    'muntah',
-    'nyeri atau kram perut bagian bawah',
-    'patah tulang kaki',
-    'pembengkakan pada area terinfeksi',
-    'pembengkakan pada kelopak mata',
-    'pembengkakan pada sendi-sendi kaki',
-    'pembentukan benjolan atau lepuh pada kulit',
-    'pendarahan atau keluarnya cairan dari vulva',
-    'pengeluaran nanah dari mata',
-    'penglihatan kabur',
-    'penurunan berat badan',
-    'penurunan berat badan yang signifikan',
-    'penurunan produksi susu pada sapi perah',
-    'penurunan suhu tubuh setelah demam',
-    'peradangan kulit',
-    'perasaan penuh atau tertekan di perut bagian bawah',
-    'perdarahan vagina yang berkepanjangan setelah persalinan',
-    'perilaku gelisah atau gatal',
-    'perkulitan',
-    'pernapasan cepat',
-    'perubahan perilaku',
-    'perut kembung',
-    'perut yang membesar secara tiba-tiba',
-    'perut yang membuncit',
-    'pilek atau sakit tenggorokan',
-    'pincang',
-    'posisi atau presentasi janin yang tidak benar (misalnya kepala tersendat)',
-    'produksi air liur meningkat',
-    'produksi lendir atau nanah pada mata (terutama jika infeksi bakteri)',
-    'produksi ludah berlebihan',
-    'prolaps anus',
-    'radang mata',
-    'radang telinga',
-    'rahang bawah bengkak',
-    'rahim bernanah',
-    'rambut kering',
-    'rambut mudah rontok',
-    'rasa nyeri atau ketidaknyamanan di mata',
-    'rasa perih atau sakit di mata',
-    'retensi placenta',
-    'sakit otot',
-    'sakit sendi',
-    'sapi kesulitan untuk melahirkan',
-    'sapi menunjukkan tanda-tanda kesakitan yang tidak biasa',
-    'sapi merintih',
-    'sapi tampak tidak nyaman',
-    'sekresi cairan atau nanah dari area terinfeksi',
-    'sembelit',
-    'sempoyongan',
-    'sensasi panas di mata',
-    'sensitivitas terhadap cahaya (fotofobia)',
-    'sering mengunyah atau menggerogoti benda-benda di sekitarnya',
-    'suara perut yang berbunyi-bunyi',
-    'suhu tubuh yang meningkat',
-    'tanda lain',
-    'terjadi kejang-kejang',
-    'tidak sakit',
-    'tremor'
+    'Abses',
+    'Ambing Bengkak',
+    'Ambruk',
+    'Anemia',
+    'Anestrus',
+    'Anorexia',
+    'Luka Yang Sulit Sembuh',
+    'Batuk',
+    'Bau Busuk Yang Tidak Sedap Dari Luka Atau Area Terinfeksi',
+    'Bau Tidak Sedap Dari Perdarahan Vagina (Baunya Bisa Menjadi Busuk)',
+    'Berat Badan Turun Secara Signifikan',
+    'Bersisik',
+    'Borok Perkulitan',
+    'Bulu Kusam',
+    'Bulu Rontok',
+    'Buta',
+    'Keriput',
+    'Darah Dalam Tinja (Terkadang)',
+    'Daun Telinga Keropeng',
+    'Dehidrasi',
+    'Demam',
+    'Diare',
+    'Durasi Gejala Biasanya 3-4 Hari',
+    'Gangguan Otot',
+    'Gangguan Pada Organ Tubuh',
+    'Gangguan Pencernaan',
+    'Gangguan Pencernaan Seperti Diare Atau Sembelit',
+    'Gangguan Penglihatan',
+    'Gangguan Pertumbuhan Pada Anak Hewan',
+    'Gangguan Pertumbuhan Pada Anak-Anak',
+    'Gangguan Reproduksi',
+    'Gangguan Sistem Kekebalan Tubuh',
+    'Gangguan Sistem Saraf',
+    'Gangguan Tulang',
+    'Gangguan Umum Dalam Perilaku Atau Kesehatan',
+    'Gatal',
+    'Gatal Atau Terasa Seperti Ada Benda Asing Di Mata',
+    'Gejala Flu',
+    'Gelisah',
+    'Gemetar',
+    'Gusi Yang Bengkak',
+    'Haid Tidak Teratur',
+    'Hati Atau Ginjal',
+    'Hernia Abdominalis',
+    'Hernia Umbilicalis',
+    'Hilangnya Bulu Atau Rambut Pada Area Yang Terinfeksi',
+    'Janin Yang Terlilit Tali Pusar',
+    'Kaku Pada Otot-Otot Tubuh',
+    'Kawin Berulang',
+    'Kebingungan',
+    'Kegagalan Hewan Untuk Makan Atau Minum',
+    'Kegagalan Organ Tertentu Karena Kekurangan Nutrisi Tertentu',
+    'Keguguran',
+    'Keguguran Muda',
+    'Keguguran Pada Betina',
+    'Kehilangan Nafsu Makan',
+    'Kejang',
+    'Kekukurusan',
+    'Kekurusan',
+    'Kelainan Kulit',
+    'Kelainan Mata',
+    'Kelainan Mulut',
+    'Kelelahan Yang Kronis',
+    'Kelesuan',
+    'Kelopak Mata Melekat Saat Bangun Tidur (Terutama Pada Konjungtivitis Bakteri)',
+    'Keluarnya Cairan Atau Darah Dalam Jumlah Yang Tidak Normal Dari Vulva',
+    'Keluarnya Sekresi',
+    'Keluarnya Sekresi Atau Mata Berair',
+    'Kemerahan',
+    'Kemungkinan Terjadinya Kejang',
+    'Kenaikan Suhu Tubuh (Demam)',
+    'Kepala Atau Anggota Badan Janin Terlihat Tidak Normal Atau Terdistorsi',
+    'Kerontokan Bulu',
+    'Kerontokan Rambut',
+    'Kesadaran Menurun',
+    'Kesulitan Berdiri',
+    'Kesulitan Bergerak',
+    'Kesulitan Bergerak Atau Berdiri',
+    'Kesulitan Bernapas',
+    'Kesulitan Dalam Perkawinan',
+    'Kesulitan Dalam Proses Persalinan',
+    'Kesulitan Kencing',
+    'Keterlambatan Dalam Pengosongan Perut',
+    'Keterlambatan Dalam Proses Persalinan',
+    'Kornea Mata Keruh',
+    'Kram Perut Atau Nyeri Perut',
+    'Kualitas Bulu Atau Kulit Yang Buruk',
+    'Kulit Kering',
+    'Kulit Kering Dan Bersisik',
+    'Kurangnya Urin',
+    'Lahir Mati',
+    'Lahir Normal',
+    'Lama Waktu Persalinan Yang Tidak Normal',
+    'Lelah',
+    'Lemah',
+    'Lemas',
+    'Liur Berdarah',
+    'Liur Berlebihan',
+    'Luka Berdarah',
+    'Luka Penis',
+    'Masalah Gigi Dan Gusi',
+    'Masalah Kulit Seperti Kering',
+    'Masalah Pada Perkembangan Otak Pada Anak-Anak',
+    'Masalah Pernapasan',
+    'Masalah Reproduksi Pada Wanita',
+    'Mata Berair',
+    'Mata Berdarah',
+    'Mata Cekung',
+    'Mata Iritasi',
+    'Mata Merah',
+    'Mata Terasa Kering Atau Terasa Pasir Di Mata',
+    'Mencret',
+    'Mengedipkan Mata Lebih Sering Dari Biasanya',
+    'Menggaruk Atau Menggosok Bagian Tubuh Tertentu',
+    'Mual',
+    'Mulut Kering',
+    'Mungkin Terjadi Bisingan Pada Rongga Dada Atau Pernapasan Yang Cepat',
+    'Muntah',
+    'Nyeri Atau Kram Perut Bagian Bawah',
+    'Patah Tulang Kaki',
+    'Pembengkakan Pada Area Terinfeksi',
+    'Pembengkakan Pada Kelopak Mata',
+    'Pembengkakan Pada Sendi-Sendi Kaki',
+    'Pembentukan Benjolan Atau Lepuh Pada Kulit',
+    'Pendarahan Atau Keluarnya Cairan Dari Vulva',
+    'Pengeluaran Nanah Dari Mata',
+    'Penglihatan Kabur',
+    'Penurunan Berat Badan',
+    'Penurunan Berat Badan Yang Signifikan',
+    'Penurunan Produksi Susu Pada Sapi Perah',
+    'Penurunan Suhu Tubuh Setelah Demam',
+    'Peradangan Kulit',
+    'Perasaan Penuh Atau Tertekan Di Perut Bagian Bawah',
+    'Perdarahan Vagina Yang Berkepanjangan Setelah Persalinan',
+    'Perilaku Gelisah Atau Gatal',
+    'Perkulitan',
+    'Pernapasan Cepat',
+    'Perubahan Perilaku',
+    'Perut Kembung',
+    'Perut Yang Membesar Secara Tiba-Tiba',
+    'Perut Yang Membuncit',
+    'Pilek Atau Sakit Tenggorokan',
+    'Pincang',
+    'Posisi Atau Presentasi Janin Yang Tidak Benar (Misalnya Kepala Tersendat)',
+    'Produksi Air Liur Meningkat',
+    'Produksi Lendir Atau Nanah Pada Mata (Terutama Jika Infeksi Bakteri)',
+    'Produksi Ludah Berlebihan',
+    'Prolaps Anus',
+    'Radang Mata',
+    'Radang Telinga',
+    'Rahang Bawah Bengkak',
+    'Rahim Bernanah',
+    'Rambut Kering',
+    'Rambut Mudah Rontok',
+    'Rasa Nyeri Atau Ketidaknyamanan Di Mata',
+    'Rasa Perih Atau Sakit Di Mata',
+    'Retensi Placenta',
+    'Sakit Otot',
+    'Sakit Sendi',
+    'Sapi Kesulitan Untuk Melahirkan',
+    'Sapi Menunjukkan Tanda-Tanda Kesakitan Yang Tidak Biasa',
+    'Sapi Merintih',
+    'Sapi Tampak Tidak Nyaman',
+    'Sekresi Cairan Atau Nanah Dari Area Terinfeksi',
+    'Sembelit',
+    'Sempoyongan',
+    'Sensasi Panas Di Mata',
+    'Sensitivitas Terhadap Cahaya (Fotofobia)',
+    'Sering Mengunyah Atau Menggerogoti Benda-Benda Di Sekitarnya',
+    'Suara Perut Yang Berbunyi-Bunyi',
+    'Suhu Tubuh Yang Meningkat',
+    'Tanda Lain',
+    'Terjadi Kejang-Kejang',
+    'Tidak Sakit',
+    'Tremor'
     ]
 
      // Fungsi untuk menangani checkbox gejala
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
-    setSelectedSymptoms((prev) =>
-      prev.includes(value)
-        ? prev.filter((symptom) => symptom !== value)
-        : [...prev, value]
-    );
+    const index = symptoms.indexOf(value);
+    setSelectedSymptoms((prev) => {
+      const newSelectedSymptoms = [...prev];
+      newSelectedSymptoms[index] = !newSelectedSymptoms[index]; // Toggle the checkbox state
+      return newSelectedSymptoms;
+    });
   };
 
   // Fungsi untuk mengirim data ke backend
   const handleDiagnose = async () => {
-    if (selectedSymptoms.length === 0 && !imageSrc) {
+    if (selectedSymptoms.every(item => !item) && !imageSrc) {
       alert("Pilih minimal satu gejala atau upload foto untuk mendiagnosa.");
       return;
     }
 
     try {
+      setLoading(true)
       let result;
 
       // If there's an image, send it for prediction
@@ -228,11 +235,12 @@ function DiagnosePage() {
         }
 
         const imageResult = await imageResponse.json();
-        result = imageResult.Penyakit;
+        result = imageResult;
       }
 
+
       // If there are symptoms selected, send them for prediction
-      if (selectedSymptoms.length > 0) {
+      if (selectedSymptoms.some(item => item)) {
         // Create array of 175 elements with 0s and 1s
         const symptomValues = Array(175).fill(0);
         selectedSymptoms.forEach(symptom => {
@@ -254,7 +262,7 @@ function DiagnosePage() {
         }
 
         const symptomsResult = await symptomsResponse.json();
-        result = symptomsResult.Penyakit;
+        result = symptomsResult;
       }
 
       // Navigate to results page with the prediction
@@ -262,13 +270,15 @@ function DiagnosePage() {
         state: { 
           diagnosis: result, 
           symptoms: selectedSymptoms,
-          image: imageSrc 
+          image: imageSrc,
         } 
       });
 
     } catch (error) {
       console.error('Error during prediction:', error);
       alert('Terjadi kesalahan saat melakukan prediksi. Silakan coba lagi.');
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -283,6 +293,32 @@ function DiagnosePage() {
       reader.readAsDataURL(file);
     }
   };
+
+  // Fungsi untuk menangani perubahan input pencarian
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+    setCurrentPage(1); // Reset ke halaman pertama saat pencarian
+  };
+
+  // Filter gejala berdasarkan pencarian
+  const filteredSymptoms = symptoms.filter(symptom =>
+    symptom.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Logika untuk memeriksa apakah checkbox terpilih
+  const isChecked = (symptom) => {
+    const index = symptoms.indexOf(symptom);
+    return selectedSymptoms[index]; // Mengembalikan status checkbox berdasarkan index
+  };
+
+  // Logika pagination
+  const totalPages = Math.ceil(filteredSymptoms.length / diseasesPerPage);
+  const indexOfLastSymptom = currentPage * diseasesPerPage;
+  const indexOfFirstSymptom = indexOfLastSymptom - diseasesPerPage;
+  const currentSymptoms = filteredSymptoms.slice(indexOfFirstSymptom, indexOfLastSymptom);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
       <div className="bg-orange-50 rounded-lg p-8 max-w-3xl mx-auto text-center shadow-lg relative">
@@ -354,14 +390,28 @@ function DiagnosePage() {
     <div className="bg-yellow-100 p-6 rounded-lg w-full">
     <h2 className="text-center font-semibold text-lg mb-4">Diagnosa</h2>
     <div className="overflow-x-auto"> {/* Enable horizontal scrolling */}
-        <div className="grid grid-cols-5 gap-4 mb-4 text-sm"> {/* Adjust the number of columns */}
-            {symptoms.map((symptom, index) => (
+        {/* Search Bar */}
+    <div className="flex items-center mb-6">
+        <input
+            type="text"
+            placeholder="Pencarian Gejala"
+            value={search}
+            onChange={handleSearchChange}
+            className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400 text-center"
+        />
+        <button className="bg-yellow-400 p-3 rounded-r-lg">
+            <img src={searchIcon} alt="Search" className="w-6 h-6" />
+        </button>
+    </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4 text-sm"> {/* Adjust the number of columns */}
+            {currentSymptoms.map((symptom, index) => (
                 <label key={index} className="flex items-center font-semibold">
                     <input
                         type="checkbox"
                         value={symptom}
                         className="mr-2"
                         onChange={handleCheckboxChange}
+                        checked={isChecked(symptom)} // Periksa apakah checkbox harus terpilih
                     />
                     {symptom}
                 </label>
@@ -371,9 +421,10 @@ function DiagnosePage() {
     <div className="flex justify-center mt-6">
         <button
             onClick={handleDiagnose}
-            className="bg-[#362B0E] text-white py-2 px-4 rounded hover:bg-[#1f1808]"
+            disabled={loading}
+            className={`bg-[#362B0E] text-white py-2 px-4 rounded hover:bg-[#1f1808] ${loading && 'opacity-80 cursor-not-allowed hover:bg-[#362B0E] animate-pulse'}`}
         >
-            Kirim Diagnosa
+            {loading ? "Sedang mendiagnosa..." : "Kirim Diagnosa"}
         </button>
     </div>
 </div>
