@@ -210,18 +210,20 @@ function DiagnosePage() {
     }
 
     try {
-      setLoading(true)
+      setLoading(true);
       let result;
 
       // If there's an image, send it for prediction
       if (imageSrc) {
-        // Convert base64 image to blob
+        console.log('Image Source:', imageSrc); // Log untuk memastikan gambar yang dikirim
         const response = await fetch(imageSrc);
         const blob = await response.blob();
         
         const formData = new FormData();
         formData.append('image', blob);
 
+        // Log sebelum mengirim ke backend
+        console.log('Sending image to backend...');
         const imageResponse = await fetch('https://app-predict-image.1ongwfft5soj.us-south.codeengine.appdomain.cloud/imagePrediction', {
           method: 'POST',
           body: formData,
@@ -230,11 +232,15 @@ function DiagnosePage() {
           }
         });
 
+        // Cek apakah respons berhasil
         if (!imageResponse.ok) {
-          throw new Error('Image prediction failed');
+          const errorMessage = await imageResponse.text(); // Ambil pesan kesalahan
+          console.error('Error from backend:', errorMessage);
+          throw new Error(`Backend error: ${errorMessage}`);
         }
 
         const imageResult = await imageResponse.json();
+        console.log('Image Prediction Result:', imageResult);
         result = imageResult;
       }
 
@@ -243,10 +249,9 @@ function DiagnosePage() {
       if (selectedSymptoms.some(item => item)) {
         // Create array of 175 elements with 0s and 1s
         const symptomValues = Array(175).fill(0);
-        selectedSymptoms.forEach(symptom => {
-          const index = symptoms.indexOf(symptom);
-          if (index !== -1) {
-            symptomValues[index] = 1;
+        selectedSymptoms.forEach((isSelected, index) => {
+          if (isSelected) {
+            symptomValues[index] = 1; // Set 1 jika gejala dipilih
           }
         });
         const symptomsResponse = await fetch('https://app-predict-image.1ongwfft5soj.us-south.codeengine.appdomain.cloud/diseasePrediction', {
@@ -254,7 +259,7 @@ function DiagnosePage() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ 'inputGejala': symptomValues }),
+          body: JSON.stringify({ 'inputGejala': symptomValues }), // Kirim data gejala
         });
 
         if (!symptomsResponse.ok) {
@@ -289,6 +294,7 @@ function DiagnosePage() {
       const reader = new FileReader();
       reader.onload = function (e) {
         setImageSrc(e.target.result); // Menyimpan URL gambar ke state
+        console.log('Image Source:', e.target.result); // Log untuk debugging
       };
       reader.readAsDataURL(file);
     }

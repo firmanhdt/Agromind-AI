@@ -17,11 +17,13 @@ function HasilDiagnose() {
         </div>
         
         <div className="mt-4">
-          <img 
-            src={image || "https://th.bing.com/th/id/OIP.tMqfiQ1jMlfVUcVKZ3HoZQHaEV?rs=1&pid=ImgDetMain"} 
-            alt={diagnosis.Penyakit} 
-            className="w-full max-w-md rounded-lg shadow-md"
-          />
+          {image && (
+            <img 
+              src={image} 
+              alt={diagnosis.Penyakit} 
+              className="w-full max-w-md rounded-lg shadow-md"
+            />
+          )}
         </div>
       </div>
 
@@ -29,7 +31,7 @@ function HasilDiagnose() {
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Gejala yang Dipilih</h2>
         <ul className="list-decimal list-inside space-y-2">
-          {diagnosis["Gejala dan tanda"].map((symptom, index) => (
+          {diagnosis["Gejala dan tanda"] && diagnosis["Gejala dan tanda"].map((symptom, index) => (
             <li key={index}>{symptom}</li>
           ))}
         </ul>
