@@ -51,6 +51,17 @@ function HasilDiagnose() {
       <div className="bg-white p-6 rounded-lg shadow-lg mt-4">
         <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Pengobatan</h2>
         <ul className="list-disc list-inside space-y-2">
+          {diagnosis.Pengobatan.map((treatment, index) => (
+            <li key={index}>{treatment}</li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Pengobatan */}
+      {/* 
+      <div className="bg-white p-6 rounded-lg shadow-lg mt-4">
+        <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Pengobatan</h2>
+        <ul className="list-disc list-inside space-y-2">
           {token ? 
           diagnosis.Pengobatan.map((treatment, index) => (
             <li key={index}>{treatment}</li>
@@ -59,6 +70,7 @@ function HasilDiagnose() {
           }
         </ul>
       </div>
+      */}
     </>
   );
 }

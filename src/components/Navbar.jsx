@@ -25,20 +25,20 @@ export const Navbar = () => {
                 <div className='hidden md:flex items-center'>
                     <ul className='flex gap-4'>
                     <li>
-                    <a href="/" className='hover:text-orange-700'>Beranda</a>
+                    <a href="#beranda" className='hover:text-orange-700'>Beranda</a>
                     </li>
                     <li>
-                    <a href="/" className='hover:text-orange-700'>Fitur</a>
+                    <a href="#fitur" className='hover:text-orange-700'>Fitur</a>
                     </li>
-                    <li>
+                    {/* <li>
                     <a href="/" className='hover:text-orange-700'>Diskusi</a>
-                    </li>
+                    </li> */}
                     <li>
-                    <a href="/" className='hover:text-orange-700'>Kontak</a>
+                    <a href="#kontak" className='hover:text-orange-700'>Kontak</a>
                     </li>
                     </ul>
                 </div>
-                <div className='hidden md:flex'>
+                {/* <div className='hidden md:flex'>
                     {userName ? (
                         <div className='space-x-4 flex items-center'>
                             <span>{`Welcome, ${userName}`}</span>
@@ -47,7 +47,7 @@ export const Navbar = () => {
                     ) : (
                         <button className='bg-[#362B0E] text-white py-2 px-4 rounded-2xl hover:bg-[#1f1808]' onClick={() => navigate('/login')}>Login</button>
                     )}
-                </div>
+                </div> */}
 
                 <div className='md:hidden' onClick={handleClick}>
                     <img src={hamburgerMenu} alt="Close" />
@@ -62,13 +62,13 @@ export const Navbar = () => {
                 <li>
                 <a href="#fitur" className='hover:text-orange-700'>Fitur</a>
                 </li>
-                <li>
+                {/* <li>
                 <a href="#diskusi" className='hover:text-orange-700'>Diskusi</a>
-                </li>
+                </li> */}
                 <li>
                 <a href="#kontak" className='hover:text-orange-700'>Kontak</a>
                 </li>
-                <div className='flex flex-col my-4 gap-4'>
+                {/* <div className='flex flex-col my-4 gap-4'>
                     {userName ? (
                         <div className='space-x-4'>
                             <button onClick={handleLogout} className='px-8 py-5 rounded-2xl bg-red-500 w-full text-white font-bold'>Logout</button>
@@ -79,7 +79,7 @@ export const Navbar = () => {
                         setToggle(false)
                         }} className='px-8 py-5 rounded-2xl bg-[#362B0E] text-white font-bold'>Login</button>
                     )}
-                </div>
+                </div> */}
             </ul>
         </div>
         
