@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import diseasesData from '../data/diseases.json';
+import searchIcon from '../assets/penyakit/searchIcon.png';
+import diseasesData from '../data/diseases.js';
 
 function DiseasePopup({ disease, onClose }) {
   return (
@@ -23,7 +24,9 @@ function Infopenyakit() {
   const diseasesPerPage = 8;
 
   useEffect(() => {
-    setDiseases(diseasesData.diseases);
+    if (diseasesData) {
+      setDiseases(diseasesData);
+    }
   }, []);
 
   const handleSearchChange = (e) => {
@@ -65,7 +68,7 @@ function Infopenyakit() {
             className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400"
           />
           <button className="bg-yellow-400 p-3 rounded-r-lg">
-            <img src="/penyakit/searchIcon.png" alt="Search" className="w-6 h-6" />
+            <img src={searchIcon} alt="Search" className="w-6 h-6" />
           </button>
         </div>
 
@@ -79,7 +82,7 @@ function Infopenyakit() {
             <div key={index}
                  className={`bg-white shadow-md rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg ${selectedDisease === disease ? 'border border-yellow-500' : ''}`}
                  onClick={() => setSelectedDisease(disease)}>
-              <img src={disease.imageUrl} alt={disease.title} className="h-40 w-full object-cover" />
+              <img src={disease.imageUrl} alt={disease.title} className="h-40 w-full object-cover" onError={() => console.log(`Failed to load image: ${disease.imageUrl}`)} />
               <div className="p-4">
                 <h2 className="font-semibold text-lg">{disease.title}</h2>
                 <p className="text-sm text-gray-700 mt-2">{disease.description}</p>
