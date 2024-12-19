@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import gbrPakanHijauNutrisi from '../assets/nutrisi/gbr pakan hijau.png';
 import gbrPakanKonsentrat from '../assets/nutrisi/gbr pakan konsentrat.png';
-import gbrPakanTambahan from '../assets/nutrisi/gbr pakan Tambahan.png';
+import gbrPakanTambahan from '../assets/nutrisi/gbr Pakan Tambahan.png';
 import image6 from '../assets/nutrisi/image 5.png';
 import image5 from '../assets/nutrisi/image 6.png';
 import image3 from '../assets/nutrisi/image 3.png';
