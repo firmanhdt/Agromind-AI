@@ -1,5 +1,9 @@
 import React from 'react'
 import logo from "../assets/agromind.png";
+import background from '../assets/landingpage/background.png';
+import gbrPakanHijau from '../assets/landingpage/image.png';
+import image5 from '../assets/landingpage/stopvirus.png';
+import image6 from '../assets/landingpage/virus.png';
 
 export const Landingpage = () => {
   return (
@@ -30,7 +34,7 @@ export const Landingpage = () => {
         <div className="flex items-center py-5 md:w-1/2 md:pb-20 md:pt-10 md:pl-10">
             <div className="relative w-full p-3 rounded  md:p-8">
                 <div className="rounded-lg text-black w-full">
-                    <img src="public/Landingpage/background.png" />
+                    <img src={background} alt="Background" />
                 </div>
             </div>
         </div>
@@ -75,13 +79,13 @@ export const Landingpage = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {/* First Card - Link to Diagnose Page */}
           <a href="/diagnose" className="text-center hover:bg-gray-100 p-4 rounded-lg border border-gray-300">
-            <img src="public/Landingpage/stopvirus.png" alt="Animal Disease Information" className="mx-auto h-48 mb-4" />
+            <img src={image5} alt="Animal Disease Information" className="mx-auto h-48 mb-4" />
             <h3 className="text-xl font-semibold">Diagnosa Penyakit Ternak Anda Sekarang</h3>
           </a>
           
           {/* Second Card - Link to Info Page */}
           <a href="/infopenyakit" className="text-center hover:bg-gray-100 p-4 rounded-lg border border-gray-300">
-            <img src="public/Landingpage/virus.png" alt="Animal Disease Information" className="mx-auto h-48 mb-4" />
+            <img src={image6} alt="Animal Disease Information" className="mx-auto h-48 mb-4" />
             <h3 className="text-xl font-semibold">Informasi Data Penyakit Hewan Ternak</h3>
           </a>
         </div> 
@@ -99,8 +103,8 @@ export const Landingpage = () => {
           </p>
           <div className="flex justify-center mb-6">
             <img
-              src="public/Landingpage/image.png"
-              alt="Nutrisi Pangan"
+              src={gbrPakanHijau}
+              alt="Contoh Pakan Hijau 1"
               className="rounded-lg shadow-lg w-full max-w-md"
             />
           </div>

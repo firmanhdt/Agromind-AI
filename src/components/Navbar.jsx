@@ -57,16 +57,16 @@ export const Navbar = () => {
         <div className={toggle?'absolute z-20 p-4 bg-white w-full px-8 md:hidden':'hidden'}>
             <ul>
                 <li>
-                <a href="#beranda" className='hover:text-orange-700'>Beranda</a>
+                <a href="/" className='hover:text-orange-700'>Beranda</a>
                 </li>
                 <li>
-                <a href="#fitur" className='hover:text-orange-700'>Fitur</a>
+                <a href="/" className='hover:text-orange-700'>Fitur</a>
                 </li>
                 {/* <li>
                 <a href="#diskusi" className='hover:text-orange-700'>Diskusi</a>
                 </li> */}
                 <li>
-                <a href="#kontak" className='hover:text-orange-700'>Kontak</a>
+                <a href="/" className='hover:text-orange-700'>Kontak</a>
                 </li>
                 {/* <div className='flex flex-col my-4 gap-4'>
                     {userName ? (
