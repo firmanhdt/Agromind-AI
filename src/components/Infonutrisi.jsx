@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import searchIcon from '../assets/penyakit/searchIcon.png';
 
 function Infonutrisi() {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -66,7 +65,7 @@ function Infonutrisi() {
 
       <div className="max-w-screen-lg mx-auto p-4">
         {/* Search Bar */}
-        <div className="flex items-center mb-6">
+        {/* <div className="flex items-center mb-6">
           <input
             type="text"
             placeholder="Pencarian Nutrisi"
@@ -75,9 +74,9 @@ function Infonutrisi() {
             className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400"
           />
           <button className="bg-yellow-400 p-3 rounded-r-lg">
-            <img src={searchIcon} alt="Search" className="w-6 h-6" />
+            <img src="/penyakit/searchIcon.png" alt="Search" className="w-6 h-6" />
           </button>
-        </div>
+        </div> */}
 
         <h1 className="text-2xl font-bold mb-4">Data Nutrisi</h1>
 
@@ -117,9 +116,9 @@ function Infonutrisi() {
           <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
             <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Hijau</h2>
             <div className="flex justify-center space-x-4 p-4">
-              <img src="/src/assets/nutrisi/gbr pakan hijau.png" alt="Contoh Pakan Hijau 1" className="w-1/3 h-auto rounded-lg shadow-md" />
-              <img src="/src/assets/nutrisi/image 5.png" alt="Contoh Pakan Hijau 2" className="w-1/3 h-auto rounded-lg shadow-md" />
-              <img src="/src/assets/nutrisi/image 6.png" alt="Contoh Pakan Hijau 3" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/gbr pakan hijau.png" alt="Contoh Pakan Hijau 1" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/image 5.png" alt="Contoh Pakan Hijau 2" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/image 6.png" alt="Contoh Pakan Hijau 3" className="w-1/3 h-auto rounded-lg shadow-md" />
             </div>
           </div>
         )}
@@ -129,9 +128,9 @@ function Infonutrisi() {
           <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
             <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Konsentrat</h2>
             <div className="flex justify-center space-x-4 p-4">
-              <img src="/src/assets/nutrisi/gbr pakan konsentrat.png" alt="Contoh Pakan Konsentrat 1" className="w-1/3 h-auto rounded-lg shadow-md" />
-              <img src="/src/assets/nutrisi/image 3.png" alt="Contoh Pakan Konsentrat 2" className="w-1/3 h-auto rounded-lg shadow-md" />
-              <img src="/src/assets/nutrisi/image 4.png" alt="Contoh Pakan Konsentrat 3" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/gbr pakan konsentrat.png" alt="Contoh Pakan Konsentrat 1" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/image 3.png" alt="Contoh Pakan Konsentrat 2" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/image 4.png" alt="Contoh Pakan Konsentrat 3" className="w-1/3 h-auto rounded-lg shadow-md" />
             </div>
           </div>
         )}
@@ -141,9 +140,9 @@ function Infonutrisi() {
           <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
             <h2 className="text-xl font-semibold mb-4 border-b border-gray-300 pb-2">Contoh Pakan Tambahan</h2>
             <div className="flex justify-center space-x-4 p-4">
-              <img src="/src/assets/nutrisi/gbr pakan Tambahan.png" alt="Contoh Pakan Tambahan 1" className="w-1/3 h-auto rounded-lg shadow-md" />
-              <img src="/src/assets/nutrisi/image 1.png" alt="Contoh Pakan Tambahan 2" className="w-1/3 h-auto rounded-lg shadow-md" />
-              <img src="/src/assets/nutrisi/image 2.png" alt="Contoh Pakan Tambahan 3" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/gbr pakan Tambahan.png" alt="Contoh Pakan Tambahan 1" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/image 1.png" alt="Contoh Pakan Tambahan 2" className="w-1/3 h-auto rounded-lg shadow-md" />
+              <img src="/public/nutrisi/image 2.png" alt="Contoh Pakan Tambahan 3" className="w-1/3 h-auto rounded-lg shadow-md" />
             </div>
           </div>
         )}

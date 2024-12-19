@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import searchIcon from '../assets/penyakit/searchIcon.png';
 import diseasesData from '../data/diseases.json';
 
 function DiseasePopup({ disease, onClose }) {
@@ -66,7 +65,7 @@ function Infopenyakit() {
             className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400"
           />
           <button className="bg-yellow-400 p-3 rounded-r-lg">
-            <img src={searchIcon} alt="Search" className="w-6 h-6" />
+            <img src="/penyakit/searchIcon.png" alt="Search" className="w-6 h-6" />
           </button>
         </div>
 

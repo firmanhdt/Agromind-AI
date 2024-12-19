@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import searchIcon from '../assets/penyakit/searchIcon.png';
 
 function DiagnosePage() {
   const [imageSrc, setImageSrc] = useState("");
@@ -406,7 +405,7 @@ function DiagnosePage() {
             className="w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-yellow-400 text-center"
         />
         <button className="bg-yellow-400 p-3 rounded-r-lg">
-            <img src={searchIcon} alt="Search" className="w-6 h-6" />
+            <img src="penyakit/searchIcon.png" alt="Search" className="w-6 h-6" />
         </button>
     </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4 text-sm"> {/* Adjust the number of columns */}

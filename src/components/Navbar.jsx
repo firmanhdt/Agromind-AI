@@ -25,16 +25,16 @@ export const Navbar = () => {
                 <div className='hidden md:flex items-center'>
                     <ul className='flex gap-4'>
                     <li>
-                    <a href="#beranda" className='hover:text-orange-700'>Beranda</a>
+                    <a href="/" className='hover:text-orange-700'>Beranda</a>
                     </li>
                     <li>
-                    <a href="#fitur" className='hover:text-orange-700'>Fitur</a>
+                    <a href="/" className='hover:text-orange-700'>Fitur</a>
                     </li>
                     {/* <li>
                     <a href="/" className='hover:text-orange-700'>Diskusi</a>
                     </li> */}
                     <li>
-                    <a href="#kontak" className='hover:text-orange-700'>Kontak</a>
+                    <a href="/" className='hover:text-orange-700'>Kontak</a>
                     </li>
                     </ul>
                 </div>

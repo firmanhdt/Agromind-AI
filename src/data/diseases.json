@@ -3,277 +3,277 @@
       {
         "title": "Brucellosis",
         "description": "Brucellosis adalah penyakit menular seksual yang menyebabkan keguguran pada sapi betina. Gejalanya meliputi keguguran berulang, kemandulan, dan retensi plasenta.",
-        "imageUrl": "/src/assets/penyakit/Brucellosis.jpg"
+        "imageUrl": "/public/penyakit/Brucellosis.jpg"
       },
       {
         "title": "Leptospirosis",
         "description": "Leptospirosis adalah penyakit akut yang disebabkan oleh bakteri leptospira. Gejalanya meliputi demam tinggi, kuning, lemas, dan gangguan urinal.",
-        "imageUrl": "/src/assets/penyakit/Leptospirosis.jpeg"
+        "imageUrl": "/public/penyakit/Leptospirosis.jpeg"
       },
       {
         "title": "Anthrax",
         "description": "Anthrax adalah penyakit akut yang disebabkan oleh bakteri Bacillus anthracis. Gejalanya meliputi demam tinggi, kesulitan bernapas, dan darah keluar dari lubang tubuh.",
-        "imageUrl": "/src/assets/penyakit/Anthrax.jpg"
+        "imageUrl": "/public/penyakit/Anthrax.jpg"
       },
       {
         "title": "Mastitis",
         "description": "Mastitis adalah peradangan pada ambing sapi yang disebabkan oleh bakteri. Gejalanya meliputi pembengkakan kemerahan, dan nyeri pada ambing, serta perubahan pada susu.",
-        "imageUrl": "/src/assets/penyakit/Mastitis.jpg"
+        "imageUrl": "/public/penyakit/Mastitis.jpg"
       },
       {
         "title": "Cacing Hati",
         "description": "Cacing hati adalah parasit yang hidup di hati sapi. Gejalanya meliputi penurunan berat badan, perut membuncit, dan anemia.",
-        "imageUrl": "/src/assets/penyakit/Cacing Hati.jpeg"
+        "imageUrl": "/public/penyakit/Cacing Hati.jpeg"
       },
       {
         "title": "Babesiosis",
         "description": "Babesiosis adalah penyakit yang disebabkan oleh parasit protozoa Babesia. Gejalanya meliputi demam tinggi, anemia, dan warna lendir merah tua.",
-        "imageUrl": "/src/assets/penyakit/Babesiosis.jpeg"
+        "imageUrl": "/public/penyakit/Babesiosis.jpeg"
       },
       {
         "title": "Hipokalsemia",
         "description": "Hipokalsemia adalah kekurangan kalsium dalam darah. Gejalanya meliputi kelemahan otot, kelumpuhan, dan gangguan jantung.",
-        "imageUrl": "/src/assets/penyakit/Hipokalsemia.jpg"
+        "imageUrl": "/public/penyakit/Hipokalsemia.jpg"
       },
       {
         "title": "Penyakit Kulit (LSD)",
         "description": "LSD adalah penyakit kulit infeksius yang disebabkan oleh virus Lumpy Skin Disease. Gejalanya meliputi benjolan pada kulit, demam, dan penurunan produksi susu.",
-        "imageUrl": "/src/assets/penyakit/Penyakit Kulit (LSD).jpg"
+        "imageUrl": "/public/penyakit/Penyakit Kulit (LSD).jpg"
       },
       {
         "title": "IBR (Infectious Bovine Rhinotracheitis)",
         "description": "IBR adalah penyakit pernapasan yang disebabkan oleh virus herpes. Gejalanya meliputi demam, batuk, hidung berair, dan kesulitan bernapas.",
-        "imageUrl": "/src/assets/penyakit/IBR.jpg"
+        "imageUrl": "/public/penyakit/IBR.jpg"
       },
       {
         "title": "BVD (Bovine Viral Diarrhea)",
         "description": "BVD adalah penyakit viral yang menyebabkan diare dan gangguan reproduksi. Gejalanya meliputi diare, demam, dan penurunan nafsu makan.",
-        "imageUrl": "/src/assets/penyakit/BVD.jpg"
+        "imageUrl": "/public/penyakit/BVD.jpg"
       },
       {
         "title": "Pneumonia",
         "description": "Pneumonia adalah infeksi paru-paru yang dapat disebabkan oleh bakteri atau virus. Gejalanya meliputi batuk, sesak napas, dan demam.",
-        "imageUrl": "/src/assets/penyakit/Pneumonia.jpg"
+        "imageUrl": "/public/penyakit/Pneumonia.jpg"
       },
       {
         "title": "Bloat (Kembung)",
         "description": "Bloat adalah kondisi dimana rumen terisi gas berlebihan. Gejalanya meliputi perut membesar, kesulitan bernapas, dan kegelisahan.",
-        "imageUrl": "/src/assets/penyakit/Bloat.jpg"
+        "imageUrl": "/public/penyakit/Bloat.jpg"
       },
       {
         "title": "Pink Eye",
         "description": "Pink Eye adalah infeksi mata yang menyebabkan peradangan. Gejalanya meliputi mata merah, berair, dan sensitif terhadap cahaya.",
-        "imageUrl": "/src/assets/penyakit/PinkEye.jpg"
+        "imageUrl": "/public/penyakit/PinkEye.jpg"
       },
       {
         "title": "Foot Rot",
         "description": "Foot Rot adalah infeksi pada kaki yang menyebabkan kepincangan. Gejalanya meliputi pembengkakan kaki, nyeri, dan kesulitan berjalan.",
-        "imageUrl": "/src/assets/penyakit/FootRot.jpg"
+        "imageUrl": "/public/penyakit/FootRot.jpg"
       },
       {
         "title": "Ketosis",
         "description": "Ketosis adalah gangguan metabolisme yang terjadi pada sapi perah. Gejalanya meliputi penurunan nafsu makan, penurunan produksi susu, dan kelemahan.",
-        "imageUrl": "/src/assets/penyakit/Ketosis.jpg"
+        "imageUrl": "/public/penyakit/Ketosis.jpg"
       },
       {
         "title": "Acidosis",
         "description": "Acidosis adalah kondisi keasaman rumen yang berlebihan. Gejalanya meliputi diare, dehidrasi, dan penurunan nafsu makan.",
-        "imageUrl": "/src/assets/penyakit/Acidosis.jpg"
+        "imageUrl": "/public/penyakit/Acidosis.jpg"
       },
       {
         "title": "Paratuberkulosis",
         "description": "Penyakit kronis yang menyerang usus sapi. Gejalanya meliputi diare kronis, penurunan berat badan, dan penurunan produksi susu.",
-        "imageUrl": "/src/assets/penyakit/Paratuberkulosis.jpg"
+        "imageUrl": "/public/penyakit/Paratuberkulosis.jpg"
       },
       {
         "title": "Tetanus",
         "description": "Tetanus adalah infeksi bakteri yang menyebabkan kekakuan otot. Gejalanya meliputi kekakuan rahang, kesulitan menelan, dan kejang-kejang.",
-        "imageUrl": "/src/assets/penyakit/Tetanus.jpg"
+        "imageUrl": "/public/penyakit/Tetanus.jpg"
       },
       {
         "title": "Blackleg",
         "description": "Blackleg adalah infeksi bakteri yang menyerang otot. Gejalanya meliputi pembengkakan otot, demam tinggi, dan kematian mendadak.",
-        "imageUrl": "/src/assets/penyakit/Blackleg.jpg"
+        "imageUrl": "/public/penyakit/Blackleg.jpg"
       },
       {
         "title": "Tuberculosis",
         "description": "Tuberculosis adalah penyakit bakteri kronis yang menyerang paru-paru. Gejalanya meliputi batuk kronis, penurunan berat badan, dan demam.",
-        "imageUrl": "/src/assets/penyakit/Tuberculosis.jpg"
+        "imageUrl": "/public/penyakit/Tuberculosis.jpg"
       },
       {
         "title": "Anaplasmosis",
         "description": "Penyakit yang disebabkan oleh parasit darah. Gejalanya meliputi anemia, demam, dan penurunan produksi susu.",
-        "imageUrl": "/src/assets/penyakit/Anaplasmosis.jpg"
+        "imageUrl": "/public/penyakit/Anaplasmosis.jpg"
       },
       {
         "title": "Theileriosis",
         "description": "Penyakit parasit yang ditularkan oleh caplak. Gejalanya meliputi demam tinggi, pembesaran kelenjar getah bening, dan anemia.",
-        "imageUrl": "/src/assets/penyakit/Theileriosis.jpg"
+        "imageUrl": "/public/penyakit/Theileriosis.jpg"
       },
       {
         "title": "Trypanosomiasis",
         "description": "Penyakit yang disebabkan oleh parasit darah Trypanosoma. Gejalanya meliputi demam, anemia, dan penurunan berat badan.",
-        "imageUrl": "/src/assets/penyakit/Trypanosomiasis.jpg"
+        "imageUrl": "/public/penyakit/Trypanosomiasis.jpg"
       },
       {
         "title": "Dermatophilosis",
         "description": "Infeksi kulit bakterial yang menyebabkan keropeng. Gejalanya meliputi lesi kulit, keropeng, dan rambut rontok.",
-        "imageUrl": "/src/assets/penyakit/Dermatophilosis.jpg"
+        "imageUrl": "/public/penyakit/Dermatophilosis.jpg"
       },
       {
         "title": "Ringworm",
         "description": "Infeksi jamur pada kulit. Gejalanya meliputi lesi melingkar pada kulit dan kehilangan rambut.",
-        "imageUrl": "/src/assets/penyakit/Ringworm.jpg"
+        "imageUrl": "/public/penyakit/Ringworm.jpg"
       },
       {
         "title": "Surra",
         "description": "Penyakit parasit yang ditularkan oleh lalat. Gejalanya meliputi demam, anemia, dan pembengkakan kaki.",
-        "imageUrl": "/src/assets/penyakit/Surra.jpg"
+        "imageUrl": "/public/penyakit/Surra.jpg"
       },
       {
         "title": "Pasteurellosis",
         "description": "Infeksi bakteri yang menyerang sistem pernapasan. Gejalanya meliputi demam, batuk, dan kesulitan bernapas.",
-        "imageUrl": "/src/assets/penyakit/Pasteurellosis.jpg"
+        "imageUrl": "/public/penyakit/Pasteurellosis.jpg"
       },
       {
         "title": "Salmonellosis",
         "description": "Infeksi bakteri yang menyebabkan diare. Gejalanya meliputi diare berdarah, demam, dan dehidrasi.",
-        "imageUrl": "/src/assets/penyakit/Salmonellosis.jpg"
+        "imageUrl": "/public/penyakit/Salmonellosis.jpg"
       },
       {
         "title": "Coccidiosis",
         "description": "Infeksi parasit yang menyerang usus. Gejalanya meliputi diare berdarah, dehidrasi, dan kelemahan.",
-        "imageUrl": "/src/assets/penyakit/Coccidiosis.jpg"
+        "imageUrl": "/public/penyakit/Coccidiosis.jpg"
       },
       {
         "title": "Displaced Abomasum",
         "description": "Perpindahan posisi lambung keempat. Gejalanya meliputi penurunan nafsu makan, penurunan produksi susu, dan ketidaknyamanan.",
-        "imageUrl": "/src/assets/penyakit/DisplacedAbomasum.jpg"
+        "imageUrl": "/public/penyakit/DisplacedAbomasum.jpg"
       },
       {
         "title": "Reticulitis Traumatica",
         "description": "Trauma pada retikulum akibat benda asing. Gejalanya meliputi nyeri perut, penurunan nafsu makan, dan demam.",
-        "imageUrl": "/src/assets/penyakit/ReticulitisTraumatica.jpg"
+        "imageUrl": "/public/penyakit/ReticulitisTraumatica.jpg"
       },
       {
         "title": "Metritis",
         "description": "Infeksi pada rahim setelah melahirkan. Gejalanya meliputi demam, keluarnya cairan berbau dari vagina, dan penurunan nafsu makan.",
-        "imageUrl": "/src/assets/penyakit/Metritis.jpg"
+        "imageUrl": "/public/penyakit/Metritis.jpg"
       },
       {
         "title": "Retained Placenta",
         "description": "Kondisi dimana plasenta tidak keluar setelah melahirkan. Gejalanya meliputi plasenta yang tertinggal dan risiko infeksi.",
-        "imageUrl": "/src/assets/penyakit/RetainedPlacenta.jpg"
+        "imageUrl": "/public/penyakit/RetainedPlacenta.jpg"
       },
       {
         "title": "Milk Fever",
         "description": "Gangguan metabolisme kalsium setelah melahirkan. Gejalanya meliputi kelumpuhan, tremor otot, dan kolaps.",
-        "imageUrl": "/src/assets/penyakit/MilkFever.jpg"
+        "imageUrl": "/public/penyakit/MilkFever.jpg"
       },
       {
         "title": "Grass Tetany",
         "description": "Kekurangan magnesium. Gejalanya meliputi kejang, ketidakseimbangan, dan kematian mendadak.",
-        "imageUrl": "/src/assets/penyakit/GrassTetany.jpg"
+        "imageUrl": "/public/penyakit/GrassTetany.jpg"
       },
       {
         "title": "Fatty Liver",
         "description": "Akumulasi lemak dalam hati. Gejalanya meliputi penurunan nafsu makan, kelemahan, dan penurunan produksi susu.",
-        "imageUrl": "/src/assets/penyakit/FattyLiver.jpg"
+        "imageUrl": "/public/penyakit/FattyLiver.jpg"
       },
       {
         "title": "Hardware Disease",
         "description": "Kerusakan organ dalam akibat menelan benda logam. Gejalanya meliputi nyeri perut, penurunan nafsu makan, dan postur tubuh abnormal.",
-        "imageUrl": "/src/assets/penyakit/HardwareDisease.jpg"
+        "imageUrl": "/public/penyakit/HardwareDisease.jpg"
       },
       {
         "title": "Johne's Disease",
         "description": "Infeksi bakteri kronis pada usus. Gejalanya meliputi diare kronis, penurunan berat badan, dan penurunan produksi susu.",
-        "imageUrl": "/src/assets/penyakit/JohnesDisease.jpg"
+        "imageUrl": "/public/penyakit/JohnesDisease.jpg"
       },
       {
         "title": "Bovine Ephemeral Fever",
         "description": "Penyakit virus yang menyebabkan demam tiga hari. Gejalanya meliputi demam, kekakuan otot, dan kelemahan.",
-        "imageUrl": "/src/assets/penyakit/BovineEphemeralFever.jpg"
+        "imageUrl": "/public/penyakit/BovineEphemeralFever.jpg"
       },
       {
         "title": "Actinomycosis",
         "description": "Infeksi bakteri pada tulang rahang. Gejalanya meliputi pembengkakan rahang, kesulitan makan, dan pembentukan abses.",
-        "imageUrl": "/src/assets/penyakit/Actinomycosis.jpg"
+        "imageUrl": "/public/penyakit/Actinomycosis.jpg"
       },
       {
         "title": "Actinobacillosis",
         "description": "Infeksi bakteri pada jaringan lunak. Gejalanya meliputi pembengkakan lidah, kesulitan menelan, dan pembentukan granuloma.",
-        "imageUrl": "/src/assets/penyakit/Actinobacillosis.jpg"
+        "imageUrl": "/public/penyakit/Actinobacillosis.jpg"
       },
       {
         "title": "Bovine Papular Stomatitis",
         "description": "Infeksi virus pada mulut. Gejalanya meliputi lesi pada mulut, kesulitan makan, dan produksi air liur berlebihan.",
-        "imageUrl": "/src/assets/penyakit/BovinePapularStomatitis.jpg"
+        "imageUrl": "/public/penyakit/BovinePapularStomatitis.jpg"
       },
       {
         "title": "Bovine Respiratory Syncytial Virus",
         "description": "Infeksi virus pada sistem pernapasan. Gejalanya meliputi batuk, demam, dan kesulitan bernapas.",
-        "imageUrl": "/src/assets/penyakit/BRSV.jpg"
+        "imageUrl": "/public/penyakit/BRSV.jpg"
       },
       {
         "title": "Malignant Catarrhal Fever",
         "description": "Penyakit virus yang menyerang berbagai sistem tubuh. Gejalanya meliputi demam tinggi, kekeruhan kornea, dan lesi pada mukosa.",
-        "imageUrl": "/src/assets/penyakit/MCF.jpg"
+        "imageUrl": "/public/penyakit/MCF.jpg"
       },
       {
         "title": "Papillomatosis",
         "description": "Infeksi virus yang menyebabkan kutil. Gejalanya meliputi pertumbuhan kutil pada kulit dan membran mukosa.",
-        "imageUrl": "/src/assets/penyakit/Papillomatosis.jpg"
+        "imageUrl": "/public/penyakit/Papillomatosis.jpg"
       },
       {
         "title": "Bovine Leukosis",
         "description": "Penyakit virus yang menyebabkan tumor. Gejalanya meliputi pembesaran kelenjar getah bening dan pembentukan tumor.",
-        "imageUrl": "/src/assets/penyakit/BovineLeukosis.jpg"
+        "imageUrl": "/public/penyakit/BovineLeukosis.jpg"
       },
       {
         "title": "Foot and Mouth Disease",
         "description": "Penyakit virus yang sangat menular. Gejalanya meliputi lesi pada mulut dan kaki, demam, dan penurunan produksi susu.",
-        "imageUrl": "/src/assets/penyakit/FMD.jpg"
+        "imageUrl": "/public/penyakit/FMD.jpg"
       },
       {
         "title": "Vesicular Stomatitis",
         "description": "Penyakit virus yang menyebabkan lepuh. Gejalanya meliputi lepuh pada mulut, ambing, dan kaki.",
-        "imageUrl": "/src/assets/penyakit/VesicularStomatitis.jpg"
+        "imageUrl": "/public/penyakit/VesicularStomatitis.jpg"
       },
       {
         "title": "Bovine Spongiform Encephalopathy",
         "description": "Penyakit degeneratif pada otak. Gejalanya meliputi perubahan perilaku, gangguan koordinasi, dan kematian.",
-        "imageUrl": "/src/assets/penyakit/BSE.jpg"
+        "imageUrl": "/public/penyakit/BSE.jpg"
       },
       {
         "title": "Bluetongue",
         "description": "Penyakit virus yang ditularkan oleh serangga. Gejalanya meliputi demam, pembengkakan lidah, dan lesi pada mulut.",
-        "imageUrl": "/src/assets/penyakit/Bluetongue.jpg"
+        "imageUrl": "/public/penyakit/Bluetongue.jpg"
       },
       {
         "title": "Bovine Babesiosis",
         "description": "Penyakit parasit darah yang ditularkan oleh caplak. Gejalanya meliputi demam, anemia, dan urin berwarna merah.",
-        "imageUrl": "/src/assets/penyakit/BovineBabesiosis.jpg"
+        "imageUrl": "/public/penyakit/BovineBabesiosis.jpg"
       },
       {
         "title": "Bovine Anaplasmosis",
         "description": "Penyakit yang disebabkan oleh parasit darah. Gejalanya meliputi anemia berat, ikterus, dan kelemahan.",
-        "imageUrl": "/src/assets/penyakit/BovineAnaplasmosis.jpg"
+        "imageUrl": "/public/penyakit/BovineAnaplasmosis.jpg"
       },
       {
         "title": "Bovine Viral Diarrhea Mucosal Disease",
         "description": "Bentuk parah dari BVD. Gejalanya meliputi diare berdarah, lesi pada mulut, dan kematian.",
-        "imageUrl": "/src/assets/penyakit/BVDMD.jpg"
+        "imageUrl": "/public/penyakit/BVDMD.jpg"
       },
       {
         "title": "Infectious Pustular Vulvovaginitis",
         "description": "Infeksi virus pada organ reproduksi. Gejalanya meliputi lesi pada vulva dan vagina, serta kesulitan berkemih.",
-        "imageUrl": "/src/assets/penyakit/IPV.jpg"
+        "imageUrl": "/public/penyakit/IPV.jpg"
       },
       {
         "title": "Bovine Genital Campylobacteriosis",
         "description": "Infeksi bakteri pada sistem reproduksi. Gejalanya meliputi infertilitas dan keguguran dini.",
-        "imageUrl": "/src/assets/penyakit/BGC.jpg"
+        "imageUrl": "/public/penyakit/BGC.jpg"
       }
     ]
   }
